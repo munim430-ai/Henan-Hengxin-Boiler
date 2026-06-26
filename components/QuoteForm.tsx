@@ -73,8 +73,8 @@ export default function QuoteForm() {
                   {
                     icon: '📧',
                     label: 'Email',
-                    value: 'hasibulmunim@gmail.com',
-                    href: 'mailto:hasibulmunim@gmail.com',
+                    value: 'munimm247@gmail.com',
+                    href: 'mailto:munimm247@gmail.com',
                   },
                   {
                     icon: '💬',

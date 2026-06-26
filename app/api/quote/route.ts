@@ -43,7 +43,7 @@ Submitted via: hengxin-boiler-bangladesh.vercel.app
     const emailHost = process.env.EMAIL_HOST
     const emailUser = process.env.EMAIL_USER
     const emailPass = process.env.EMAIL_PASS
-    const emailTo = process.env.EMAIL_TO || 'hasibulmunim@gmail.com'
+    const emailTo = process.env.EMAIL_TO || 'munimm247@gmail.com'
     const emailPort = parseInt(process.env.EMAIL_PORT || '587', 10)
 
     if (emailHost && emailUser && emailPass) {
