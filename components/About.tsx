@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 export default function About() {
   return (
     <section id="about" className="py-20 bg-white">
@@ -29,7 +31,7 @@ export default function About() {
 
             {/* Certifications */}
             <div className="flex flex-wrap gap-3 mb-8">
-              {['ISO 9001:2015', 'CE Certified', 'ASME Standards', 'China Boiler License'].map((cert) => (
+              {['ISO 9001:2015', 'CE Certified', 'EAC Certified', 'China Boiler License (A级)'].map((cert) => (
                 <span
                   key={cert}
                   className="flex items-center gap-1.5 bg-slate-100 text-slate-700 text-sm font-semibold px-3 py-1.5 rounded-lg"
@@ -50,48 +52,67 @@ export default function About() {
             </a>
           </div>
 
-          {/* Right: Stats & Facts */}
+          {/* Right: Factory photo + Stats */}
           <div className="space-y-4">
-            {[
-              {
-                icon: '🏭',
-                title: 'Factory Location',
-                value: 'Henan Province, China',
-                sub: 'State-of-the-art manufacturing facility',
-              },
-              {
-                icon: '📅',
-                title: 'Years of Experience',
-                value: '15+ Years',
-                sub: 'Exporting to 30+ countries worldwide',
-              },
-              {
-                icon: '🔩',
-                title: 'Annual Production',
-                value: '500+ Boilers',
-                sub: 'Capacity for rapid delivery',
-              },
-              {
-                icon: '🌍',
-                title: 'Bangladesh Partner',
-                value: 'Keystone Consultancy',
-                sub: 'Gazipur, Dhaka — Registered Electrical Engineer on staff',
-              },
-            ].map((item, i) => (
-              <div
-                key={i}
-                className="flex items-start gap-4 p-5 bg-slate-50 rounded-xl border border-slate-200 hover:border-red-200 hover:bg-red-50/30 transition-colors duration-200"
-              >
-                <div className="text-3xl">{item.icon}</div>
-                <div>
-                  <div className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-0.5">
-                    {item.title}
-                  </div>
-                  <div className="text-lg font-black text-slate-900">{item.value}</div>
-                  <div className="text-sm text-slate-600 mt-0.5">{item.sub}</div>
-                </div>
+            {/* Real factory photo */}
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+              <Image
+                src="/images/factory.jpg"
+                alt="Henan Hengxin Boiler Manufacturing Facility — Henan Province, China"
+                width={900}
+                height={500}
+                className="w-full h-64 object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+              <div className="absolute bottom-4 left-4 text-white">
+                <div className="font-black text-lg">Manufacturing Facility</div>
+                <div className="text-sm text-white/80">Henan Province, China</div>
               </div>
-            ))}
+            </div>
+
+            {/* Stats */}
+            <div className="grid grid-cols-2 gap-4">
+              {[
+                {
+                  icon: '📅',
+                  title: 'Years of Experience',
+                  value: '15+ Years',
+                  sub: 'Exporting to 30+ countries',
+                },
+                {
+                  icon: '🔩',
+                  title: 'Annual Production',
+                  value: '500+ Boilers',
+                  sub: 'Rapid delivery capacity',
+                },
+                {
+                  icon: '🌍',
+                  title: 'Bangladesh Partner',
+                  value: 'Keystone Consultancy',
+                  sub: 'Gazipur — Reg. Engineer on staff',
+                },
+                {
+                  icon: '🏆',
+                  title: 'Certifications',
+                  value: 'ISO / CE / EAC',
+                  sub: 'International quality standards',
+                },
+              ].map((item, i) => (
+                <div
+                  key={i}
+                  className="flex items-start gap-3 p-4 bg-slate-50 rounded-xl border border-slate-200 hover:border-red-200 hover:bg-red-50/30 transition-colors duration-200"
+                >
+                  <div className="text-2xl">{item.icon}</div>
+                  <div>
+                    <div className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-0.5">
+                      {item.title}
+                    </div>
+                    <div className="text-sm font-black text-slate-900">{item.value}</div>
+                    <div className="text-xs text-slate-600 mt-0.5">{item.sub}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
