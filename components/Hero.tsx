@@ -1,13 +1,19 @@
-import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Hero() {
   return (
-    <section className="hero-gradient min-h-screen flex flex-col justify-center relative overflow-hidden">
-      {/* Background pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-        }} />
+    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden">
+      {/* Background: real factory/boiler image */}
+      <div className="absolute inset-0">
+        <Image
+          src="/images/factory.jpg"
+          alt="Henan Hengxin Boiler Manufacturing Facility"
+          fill
+          className="object-cover object-center"
+          priority
+        />
+        {/* Overlay gradient */}
+        <div className="absolute inset-0 bg-gradient-to-r from-red-950/95 via-red-900/85 to-red-800/60" />
       </div>
 
       {/* Decorative circles */}
@@ -18,6 +24,18 @@ export default function Hero() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left: Content */}
           <div>
+            {/* Real Hengxin Logo */}
+            <div className="mb-8">
+              <Image
+                src="/images/hengxin-logo.png"
+                alt="Henan Hengxin Boiler Co., Ltd."
+                width={280}
+                height={66}
+                className="h-14 w-auto brightness-0 invert"
+                priority
+              />
+            </div>
+
             {/* Badge */}
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6">
               <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
@@ -25,10 +43,9 @@ export default function Hero() {
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight mb-6">
-              Henan Hengxin Boiler{' '}
+              Maximum Value{' '}
               <span className="text-yellow-300">—</span>{' '}
-              <span className="text-green-300">Maximum Value</span>{' '}
-              for Bangladesh Factories
+              <span className="text-green-300">for Bangladesh Factories</span>
             </h1>
 
             <p className="text-xl sm:text-2xl text-red-100 font-semibold mb-8">
@@ -68,48 +85,44 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right: Stats */}
-          <div className="grid grid-cols-2 gap-4">
-            {[
-              {
-                stat: '25-35%',
-                label: 'Below Premium Brands',
-                sublabel: 'Price advantage',
-                color: 'from-yellow-500 to-orange-500',
-                icon: '💰',
-              },
-              {
-                stat: '40%',
-                label: 'Cheaper than Diesel',
-                sublabel: 'Biomass savings',
-                color: 'from-green-500 to-emerald-600',
-                icon: '🌿',
-              },
-              {
-                stat: '30%',
-                label: 'Factories Affected',
-                sublabel: 'Bangladesh gas crisis',
-                color: 'from-red-500 to-red-700',
-                icon: '⚡',
-              },
-              {
-                stat: '24/7',
-                label: 'Local Support',
-                sublabel: 'Gazipur service team',
-                color: 'from-blue-500 to-blue-700',
-                icon: '🔧',
-              },
-            ].map((item, i) => (
-              <div
-                key={i}
-                className={`bg-gradient-to-br ${item.color} rounded-2xl p-5 text-white shadow-2xl transform hover:scale-105 transition-transform duration-200`}
-              >
-                <div className="text-3xl mb-1">{item.icon}</div>
-                <div className="text-3xl font-black leading-tight">{item.stat}</div>
-                <div className="font-bold text-sm mt-1">{item.label}</div>
-                <div className="text-xs opacity-80 mt-0.5">{item.sublabel}</div>
+          {/* Right: Real boiler image + Stats */}
+          <div className="flex flex-col gap-4">
+            {/* Real boiler image */}
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10">
+              <Image
+                src="/images/boiler-dzl-horizontal.webp"
+                alt="Hengxin DZL Series Biomass Chain Grate Steam Boiler"
+                width={600}
+                height={420}
+                className="w-full h-72 object-cover object-center"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+              <div className="absolute bottom-3 left-3 bg-red-600 text-white text-xs font-bold px-3 py-1.5 rounded-full">
+                DZL Series — Biomass Steam Boiler
               </div>
-            ))}
+              <div className="absolute bottom-3 right-3 bg-green-600 text-white text-xs font-bold px-3 py-1.5 rounded-full">
+                CE & EAC Certified
+              </div>
+            </div>
+
+            {/* Stats grid */}
+            <div className="grid grid-cols-2 gap-3">
+              {[
+                { stat: '25-35%', label: 'Below Premium Brands', icon: '💰', color: 'from-yellow-500 to-orange-500' },
+                { stat: '40%', label: 'Cheaper than Diesel', icon: '🌿', color: 'from-green-500 to-emerald-600' },
+                { stat: '30%', label: 'Factories Gas-Hit', icon: '⚡', color: 'from-red-500 to-red-700' },
+                { stat: '24/7', label: 'Local Support', icon: '🔧', color: 'from-blue-500 to-blue-700' },
+              ].map((item, i) => (
+                <div
+                  key={i}
+                  className={`bg-gradient-to-br ${item.color} rounded-xl p-4 text-white shadow-xl`}
+                >
+                  <div className="text-2xl mb-0.5">{item.icon}</div>
+                  <div className="text-2xl font-black leading-tight">{item.stat}</div>
+                  <div className="font-semibold text-xs mt-0.5 opacity-90">{item.label}</div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

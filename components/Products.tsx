@@ -1,86 +1,110 @@
+import Image from 'next/image'
+
 const products = [
   {
     id: 1,
     series: 'DZL Series',
     name: 'Single Drum Biomass Chain Grate Steam Boiler',
+    image: '/images/boiler-dzl-horizontal.webp',
+    hasRealImage: true,
+    imageAlt: 'Hengxin DZL Series horizontal chain grate biomass steam boiler',
     capacityRange: '1 – 20 ton/hr',
     pressureRange: '0.7 – 2.5 MPa',
     fuelType: 'Rice Husk Pellets, Wood Chips, Biomass, Coal',
     efficiency: '82 – 85%',
     badge: 'Most Popular',
     badgeColor: 'bg-red-600',
-    description: 'Compact horizontal design ideal for small to medium factories. Easy installation, low maintenance cost, perfect for Bangladesh RMG factories.',
+    description: 'Compact horizontal chain grate design — the workhorse for Bangladesh RMG and textile factories. Runs on locally available rice husk pellets. Easy installation, low maintenance.',
     bestFor: 'Small RMG, Dyeing',
-    emoji: '🔥',
+    bgColor: 'from-slate-700 to-slate-900',
   },
   {
     id: 2,
     series: 'SZL Series',
     name: 'Double Drum Biomass Chain Grate Steam Boiler',
+    image: null,
+    hasRealImage: false,
+    imageAlt: '',
     capacityRange: '4 – 35 ton/hr',
     pressureRange: '0.7 – 2.5 MPa',
     fuelType: 'Biomass, Rice Husk, Agricultural Waste, Coal',
     efficiency: '83 – 87%',
     badge: 'Best for Textile',
     badgeColor: 'bg-green-600',
-    description: 'Assembled double drum design for larger factories. Higher efficiency, longer lifespan, widely used in textile and dyeing plants across Asia.',
+    description: 'Assembled double drum design for larger factories. Higher efficiency, longer lifespan, widely used in textile and dyeing plants across South and Southeast Asia.',
     bestFor: 'Textile, Printing',
+    bgColor: 'from-emerald-800 to-slate-900',
     emoji: '⚙️',
   },
   {
     id: 3,
-    series: 'WNS Series',
-    name: 'Horizontal Fire Tube Gas/Oil Steam Boiler',
-    capacityRange: '1 – 20 ton/hr',
+    series: 'WNS / LSS Series',
+    name: 'Vertical & Horizontal Gas/Oil Steam Boiler',
+    image: '/images/boiler-wns-vertical.webp',
+    hasRealImage: true,
+    imageAlt: 'Hengxin WNS/LSS stainless steel vertical gas oil steam boiler',
+    capacityRange: '0.1 – 20 ton/hr',
     pressureRange: '0.7 – 1.25 MPa',
     fuelType: 'Natural Gas, LPG, Diesel, Heavy Oil',
-    efficiency: '90 – 92%',
+    efficiency: '90 – 95%',
     badge: 'Gas/Diesel Option',
     badgeColor: 'bg-blue-600',
-    description: 'Premium fire tube boiler for gas or diesel fuel. Ultra-high efficiency, compact footprint, ideal for factories with gas supply or diesel backup.',
+    description: 'Premium fire tube boiler for gas or diesel. Ultra-high efficiency, stainless steel finish, compact footprint, fully automatic. CE & EAC certified. Ideal for clean fuel applications.',
     bestFor: 'Food Processing, Hotels',
-    emoji: '💧',
+    bgColor: 'from-blue-800 to-slate-900',
   },
   {
     id: 4,
     series: 'YLW Series',
     name: 'Coal/Biomass Thermal Oil Heater',
+    image: null,
+    hasRealImage: false,
+    imageAlt: '',
     capacityRange: '700 kW – 14,000 kW',
     pressureRange: 'Low Pressure (0.8 MPa max)',
     fuelType: 'Coal, Biomass, Wood Chips',
     efficiency: '80 – 85%',
     badge: 'For Dyeing Mills',
     badgeColor: 'bg-orange-600',
-    description: 'Thermal oil circulation system for dyeing, printing, and rubber factories. Low pressure operation = high safety, uniform temperature control.',
+    description: 'Thermal oil circulation system for dyeing, printing, and rubber factories. Low pressure = high safety, uniform temperature control up to 320°C. No steam quality issues.',
     bestFor: 'Dyeing, Rubber, Chemical',
+    bgColor: 'from-orange-900 to-slate-900',
     emoji: '🌡️',
   },
   {
     id: 5,
     series: 'CFB Series',
     name: 'Circulating Fluidized Bed Boiler',
+    image: null,
+    hasRealImage: false,
+    imageAlt: '',
     capacityRange: '10 – 130 ton/hr',
     pressureRange: '1.0 – 9.8 MPa',
     fuelType: 'Coal, Biomass, Sludge, Mixed Fuel',
     efficiency: '88 – 93%',
     badge: 'Large Scale',
     badgeColor: 'bg-purple-600',
-    description: 'Heavy-duty CFB technology for large factories and industrial complexes. Burns almost any fuel including low-grade coal and agricultural waste.',
+    description: 'Heavy-duty CFB technology for large factories and industrial complexes. Burns almost any fuel — including low-grade coal, agricultural waste, and mixed biomass.',
     bestFor: 'Large Factories, Power',
+    bgColor: 'from-purple-900 to-slate-900',
     emoji: '🏭',
   },
   {
     id: 6,
     series: 'DHL Series',
-    name: 'Corner Tube Chain Grate Steam Boiler',
+    name: 'Corner Tube Chain Grate Boiler',
+    image: null,
+    hasRealImage: false,
+    imageAlt: '',
     capacityRange: '4 – 75 ton/hr',
     pressureRange: '1.25 – 5.29 MPa',
     fuelType: 'Coal, Biomass, Lignite',
     efficiency: '85 – 88%',
     badge: 'High Pressure',
     badgeColor: 'bg-slate-700',
-    description: 'High-pressure corner tube boiler for demanding industrial applications. Robust design, low maintenance, suitable for high-steam-demand factories.',
+    description: 'High-pressure corner tube boiler for demanding industrial applications. Robust construction, long service life, suitable for high-steam-demand production lines.',
     bestFor: 'Heavy Industry, Export',
+    bgColor: 'from-slate-700 to-slate-900',
     emoji: '💪',
   },
 ]
@@ -100,8 +124,8 @@ export default function Products() {
             <span className="text-green-600">for Every Factory</span>
           </h2>
           <p className="section-subtitle mx-auto text-center">
-            From 1-ton to 130-ton capacity. Gas, diesel, coal, or biomass. Every model comes with
-            full Bangladesh registration documentation.
+            From 0.1-ton to 130-ton capacity. Gas, diesel, coal, or biomass. Every model comes with
+            full Bangladesh registration documentation included.
           </p>
         </div>
 
@@ -112,23 +136,33 @@ export default function Products() {
               key={product.id}
               className="product-card card border border-slate-200 hover:border-green-300 flex flex-col"
             >
-              {/* Image placeholder */}
-              <div className="relative bg-gradient-to-br from-slate-700 to-slate-900 h-52 flex items-center justify-center overflow-hidden">
-                <div className="text-8xl">{product.emoji}</div>
+              {/* Image */}
+              <div className={`relative bg-gradient-to-br ${product.bgColor} h-56 flex items-center justify-center overflow-hidden`}>
+                {product.hasRealImage && product.image ? (
+                  <Image
+                    src={product.image}
+                    alt={product.imageAlt}
+                    fill
+                    className="object-cover product-image"
+                  />
+                ) : (
+                  <div className="text-8xl opacity-60">{product.emoji}</div>
+                )}
                 <div className="absolute inset-0 bg-black/20" />
+
                 {/* Badge */}
-                <div className={`absolute top-3 left-3 ${product.badgeColor} text-white text-xs font-bold px-2.5 py-1 rounded-full`}>
+                <div className={`absolute top-3 left-3 ${product.badgeColor} text-white text-xs font-bold px-2.5 py-1 rounded-full z-10`}>
                   {product.badge}
                 </div>
                 {/* Bangladesh docs badge */}
-                <div className="absolute bottom-3 right-3 bg-green-600 text-white text-xs font-bold px-2.5 py-1 rounded-full flex items-center gap-1">
+                <div className="absolute bottom-3 right-3 bg-green-600 text-white text-xs font-bold px-2.5 py-1 rounded-full flex items-center gap-1 z-10">
                   <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
                   </svg>
                   BD Docs Included
                 </div>
                 {/* Series label */}
-                <div className="absolute top-3 right-3 bg-black/50 text-white text-xs font-bold px-2.5 py-1 rounded-full">
+                <div className="absolute top-3 right-3 bg-black/50 text-white text-xs font-bold px-2.5 py-1 rounded-full z-10">
                   {product.series}
                 </div>
               </div>
@@ -174,15 +208,26 @@ export default function Products() {
           ))}
         </div>
 
-        {/* Bottom CTA */}
-        <div className="mt-12 text-center bg-slate-50 rounded-2xl p-8 border border-slate-200">
-          <p className="text-slate-700 font-semibold text-lg mb-2">
-            Need a custom capacity or fuel configuration?
-          </p>
-          <p className="text-slate-500 mb-6">
-            We can source any Hengxin model. Contact us with your exact requirement.
-          </p>
-          <a href="#contact" className="btn-red">
+        {/* Hengxin logo strip */}
+        <div className="mt-12 bg-slate-50 rounded-2xl p-8 border border-slate-200 flex flex-col md:flex-row items-center gap-8">
+          <div className="flex-shrink-0">
+            <Image
+              src="/images/hengxin-logo.png"
+              alt="Henan Hengxin Boiler Co., Ltd."
+              width={240}
+              height={57}
+              className="h-12 w-auto"
+            />
+          </div>
+          <div className="flex-1 text-center md:text-left">
+            <p className="text-slate-700 font-semibold text-lg mb-1">
+              Need a custom capacity or fuel configuration?
+            </p>
+            <p className="text-slate-500 text-sm">
+              We can source any Hengxin model. Our team will match you with the right boiler for your factory&apos;s exact requirement.
+            </p>
+          </div>
+          <a href="#contact" className="btn-red flex-shrink-0">
             Discuss Custom Requirements
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />

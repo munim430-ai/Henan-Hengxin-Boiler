@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -25,29 +25,24 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white shadow-lg' : 'bg-transparent'
+        isScrolled ? 'bg-white shadow-lg' : 'bg-black/30 backdrop-blur-sm'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <Link href="#" className="flex items-center gap-3 flex-shrink-0">
-            <div className="flex items-center gap-2">
-              <div className="w-10 h-10 bg-red-600 rounded-lg flex items-center justify-center">
-                <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
-                </svg>
-              </div>
-              <div>
-                <div className={`font-black text-base leading-tight ${isScrolled ? 'text-red-700' : 'text-white'}`}>
-                  HENGXIN BOILER
-                </div>
-                <div className={`text-xs leading-tight ${isScrolled ? 'text-green-700' : 'text-green-300'}`}>
-                  Bangladesh Authorized Rep.
-                </div>
-              </div>
+          <a href="#" className="flex items-center gap-3 flex-shrink-0">
+            <div className={`transition-all duration-300 ${isScrolled ? '' : 'brightness-0 invert'}`}>
+              <Image
+                src="/images/hengxin-logo.png"
+                alt="Henan Hengxin Boiler Co., Ltd."
+                width={220}
+                height={52}
+                className="h-10 w-auto object-contain"
+                priority
+              />
             </div>
-          </Link>
+          </a>
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-1">

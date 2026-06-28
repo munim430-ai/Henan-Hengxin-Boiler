@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 export default function Footer() {
   const currentYear = new Date().getFullYear()
 
@@ -8,16 +10,15 @@ export default function Footer() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 bg-red-600 rounded-lg flex items-center justify-center">
-                <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
-                </svg>
-              </div>
-              <div>
-                <div className="font-black text-lg leading-tight text-white">HENGXIN BOILER</div>
-                <div className="text-xs text-green-400 leading-tight">Bangladesh Authorized Representative</div>
-              </div>
+            <div className="mb-4">
+              <Image
+                src="/images/hengxin-logo.png"
+                alt="Henan Hengxin Boiler Co., Ltd."
+                width={220}
+                height={52}
+                className="h-12 w-auto brightness-0 invert"
+              />
+              <div className="text-xs text-green-400 mt-1 font-semibold">Bangladesh Authorized Representative</div>
             </div>
             <p className="text-slate-400 text-sm leading-relaxed mb-6 max-w-sm">
               Henan Hengxin Boiler Manufacturing Co., Ltd. — industrial-grade boilers at the best
